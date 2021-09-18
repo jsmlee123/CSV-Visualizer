@@ -39,6 +39,8 @@ public class DataView extends JFrame {
 
   private final JMenuItem plotBar;
 
+  private final JMenuItem plotBar3D;
+
   public DataView() {
     //init general stuff about gui.
     super();
@@ -101,6 +103,11 @@ public class DataView extends JFrame {
     plotBar.setActionCommand("Plot Bar");
     plot.add(plotBar);
 
+    //Plot bar
+    plotBar3D = new JMenuItem("Plot Bar 3D");
+    plotBar3D.setActionCommand("Plot Bar 3D");
+    plot.add(plotBar3D);
+
 
     //menu for data manipulation
     JMenu manipulateData = new JMenu("Manipulate data");
@@ -135,6 +142,7 @@ public class DataView extends JFrame {
     fileOpenButton.addActionListener(listener);
     plotLinear.addActionListener(listener);
     plotBar.addActionListener(listener);
+    plotBar3D.addActionListener(listener);
     removeCountry.addActionListener(listener);
     addCountry.addActionListener(listener);
     onlyCountry.addActionListener(listener);
