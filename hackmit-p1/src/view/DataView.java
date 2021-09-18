@@ -35,6 +35,8 @@ public class DataView extends JFrame {
 
   private final JMenuItem allCountry;
 
+  private final JMenuItem addCountries;
+
   public DataView() {
     //init general stuff about gui.
     super();
@@ -114,6 +116,10 @@ public class DataView extends JFrame {
     allCountry.setActionCommand("All");
     manipulateData.add(allCountry);
 
+    addCountries = new JMenuItem("Add Countries");
+    addCountries.setActionCommand("Add All");
+    manipulateData.add(addCountries);
+
     this.pack();
   }
 
@@ -124,6 +130,7 @@ public class DataView extends JFrame {
     addCountry.addActionListener(listener);
     onlyCountry.addActionListener(listener);
     allCountry.addActionListener(listener);
+    addCountries.addActionListener(listener);
   }
 
   public void setImage(BufferedImage bufferedImage) {

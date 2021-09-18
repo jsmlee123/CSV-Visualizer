@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,11 @@ public class Country implements DataStorage {
   @Override
   public String getMeasurement() {
     return this.measurement;
+  }
+
+  @Override
+  public Map<Integer,Float> getMap() {
+    return new HashMap<Integer,Float>(this.carbonData);
   }
 
   @Override

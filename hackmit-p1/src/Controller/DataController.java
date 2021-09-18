@@ -1,5 +1,6 @@
 package Controller;
 
+import Commands.AddTwoCommand;
 import Commands.AllCommand;
 import Commands.DataCommand;
 import Commands.OnlyCountries;
@@ -50,6 +51,10 @@ public class DataController implements ActionListener {
             + Util.getString(this.hidden)  +Util.getString(this.model))));
 
     commandMap.putIfAbsent("All", () -> new AllCommand(model,hidden,view));
+
+    commandMap.putIfAbsent("Add All", () -> new AddTwoCommand(model,hidden,view,
+        view.getText("Input Countries to only include, separated by comma, Allowed Countries: \n"
+            + Util.getString(this.hidden)  +Util.getString(this.model))));
 
     view.setListener(this);
     view.setVisible(true);
