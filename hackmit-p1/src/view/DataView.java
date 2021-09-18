@@ -37,6 +37,8 @@ public class DataView extends JFrame {
 
   private final JMenuItem addCountries;
 
+  private final JMenuItem plotBar;
+
   public DataView() {
     //init general stuff about gui.
     super();
@@ -89,10 +91,16 @@ public class DataView extends JFrame {
     JMenu plot = new JMenu("Plot");
     menuBar.add(plot);
 
-    //load file
+    //Plot line
     plotLinear = new JMenuItem("Plot Linear");
     plotLinear.setActionCommand("Plot Linear");
     plot.add(plotLinear);
+
+    //Plot bar
+    plotBar = new JMenuItem("Plot Bar");
+    plotBar.setActionCommand("Plot Bar");
+    plot.add(plotBar);
+
 
     //menu for data manipulation
     JMenu manipulateData = new JMenu("Manipulate data");
@@ -126,6 +134,7 @@ public class DataView extends JFrame {
   public void setListener(ActionListener listener) {
     fileOpenButton.addActionListener(listener);
     plotLinear.addActionListener(listener);
+    plotBar.addActionListener(listener);
     removeCountry.addActionListener(listener);
     addCountry.addActionListener(listener);
     onlyCountry.addActionListener(listener);

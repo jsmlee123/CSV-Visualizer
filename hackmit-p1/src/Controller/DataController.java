@@ -4,6 +4,7 @@ import Commands.AddTwoCommand;
 import Commands.AllCommand;
 import Commands.DataCommand;
 import Commands.OnlyCountries;
+import Commands.PlotBarCommand;
 import Commands.PlotLineCommand;
 import Commands.ReadCSV;
 import Commands.addCountry;
@@ -38,6 +39,7 @@ public class DataController implements ActionListener {
 
     this.commandMap = new HashMap<>();
     commandMap.putIfAbsent("Plot Linear", () -> new PlotLineCommand(model, view));
+    commandMap.putIfAbsent("Plot Bar", () -> new PlotBarCommand(model, view));
     commandMap.putIfAbsent("Open", () -> new ReadCSV(model,view, view.getCSVPath()));
     commandMap.putIfAbsent("Remove", () -> new removeCountry(model,hidden,view,
         view.getText("Input Countries to remove, separated by comma")));
