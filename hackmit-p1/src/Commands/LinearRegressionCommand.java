@@ -35,7 +35,7 @@ public class LinearRegressionCommand extends AbstractCommand{
       dataPredList.add(i);
     }
 
-    int n = dataList.size();
+    int n = dataNumList.size();
 
 
     for (Country co: model) {
@@ -59,7 +59,7 @@ public class LinearRegressionCommand extends AbstractCommand{
 
 
       for (int future:dataPredList) {
-        float prediction = future * b + a;
+        float prediction = b + co.getMap().get(future - 1);
         co.addPoint(future,prediction);
       }
     }
