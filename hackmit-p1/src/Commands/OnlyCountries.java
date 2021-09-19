@@ -34,14 +34,14 @@ public class OnlyCountries extends AbstractCommand{
     for (Country co: newModel) {
       if (!(badList.contains(co))) {
 
-        new removeCountry(this.model,this.hidden,this.view,co.getName()).run();
+        new RemoveCountry(this.model,this.hidden,this.view,co.getName()).run();
       }
     }
 
     newModel = new ArrayList<>(this.hidden);
     for (Country co: newModel) {
       if (badList.contains(co)) {
-        new addCountry(this.model,this.hidden,this.view,co.getName()).run();
+        new AddCountry(this.model,this.hidden,this.view,co.getName()).run();
       }
     }
   }

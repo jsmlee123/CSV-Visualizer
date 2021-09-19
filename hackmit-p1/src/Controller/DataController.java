@@ -9,14 +9,12 @@ import Commands.PlotBarCommand;
 import Commands.PlotLineCommand;
 import Commands.ReadCSV;
 import Commands.SaveCommand;
-import Commands.addCountry;
-import Commands.removeCountry;
+import Commands.AddCountry;
+import Commands.RemoveCountry;
 import Model.Country;
 import Model.Util;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,10 +51,10 @@ public class DataController implements ActionListener {
         view.chooseType(new String[]{"Linear","Bar Plot", "Bar Plot 3D"}) ,view.saveImage()));
 
 
-    commandMap.putIfAbsent("Remove", () -> new removeCountry(model,hidden,view,
+    commandMap.putIfAbsent("Remove", () -> new RemoveCountry(model,hidden,view,
         view.getText("Input Countries to remove, separated by comma")));
 
-    commandMap.putIfAbsent("Add Back", () -> new addCountry(model,hidden,view,
+    commandMap.putIfAbsent("Add Back", () -> new AddCountry(model,hidden,view,
         view.getText("Input Countries to add back, separated by comma, Allowed Countries: \n" + Util.getString(this.hidden))));
 
 

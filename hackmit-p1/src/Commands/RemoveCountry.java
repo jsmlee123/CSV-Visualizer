@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import view.DataView;
 
-public class removeCountry extends AbstractCommand{
+public class RemoveCountry extends AbstractCommand{
   String countries;
   List<Country> hiddenModel;
 
-  public removeCountry(List<Country> model, List<Country> hiddenModel, DataView view,
+  public RemoveCountry(List<Country> model, List<Country> hiddenModel, DataView view,
       String countries) {
     super(model, view);
     this.countries = countries;
