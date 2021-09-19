@@ -16,3 +16,7 @@
 
 # Saving Graphs
 - graphs can be saved by the save option under file. Button prompts user to choose which graph type they desire to save the current data as. Must be saved as a png file.
+
+# Citations
+- https://www.baeldung.com/java-csv-file-array used for reference for helping parse a csv file.
+- https://www.oecd.org/greengrowth/carbondioxideemissionsembodiedininternationaltrade.html used for data set
