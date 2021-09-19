@@ -3,6 +3,7 @@ package Controller;
 import Commands.AddTwoCommand;
 import Commands.AllCommand;
 import Commands.DataCommand;
+import Commands.LinearRegressionCommand;
 import Commands.OnlyCountries;
 import Commands.PlotBar3DCommand;
 import Commands.PlotBarCommand;
@@ -68,6 +69,8 @@ public class DataController implements ActionListener {
         view.getText("Input Countries to only include, separated by comma, Allowed Countries: \n"
             + Util.getString(this.hidden)  +Util.getString(this.model))));
 
+    commandMap.putIfAbsent("Linear Regression", () -> new LinearRegressionCommand(model,view,view.getText("Put range of regression(start, end)"),
+        view.getText("Put years to predict(start,end)")));
     view.setListener(this);
     view.setVisible(true);
 

@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,10 @@ public class Country implements DataStorage {
    */
   public List<java.lang.Float[]> plottable() {
     List<java.lang.Float[]> list2d = new ArrayList<>();
-    for (Integer keys : this.carbonData.keySet()) {
+
+    List<Integer> sortedSet = new ArrayList<>(this.carbonData.keySet());
+    Collections.sort(sortedSet);
+    for (Integer keys : sortedSet) {
 
       list2d.add(new java.lang.Float[] {new java.lang.Float(keys), this.carbonData.get(keys)});
     }
@@ -43,6 +47,11 @@ public class Country implements DataStorage {
   @Override
   public Map<Integer,Float> getMap() {
     return new HashMap<Integer,Float>(this.carbonData);
+  }
+
+  @Override
+  public void addPoint(int parsedFut, float prediction) {
+    this.carbonData.putIfAbsent(parsedFut,prediction);
   }
 
   @Override

@@ -43,6 +43,8 @@ public class DataView extends JFrame {
 
   private final JMenuItem plotBar3D;
 
+  private final JMenuItem linearRegression;
+
   public DataView() {
     //init general stuff about gui.
     super();
@@ -142,6 +144,17 @@ public class DataView extends JFrame {
     addCountries.setActionCommand("Add All");
     manipulateData.add(addCountries);
 
+    //menu for regression operations
+    JMenu regression = new JMenu("Regression");
+    menuBar.add(regression);
+
+    //linear regression on data
+    linearRegression = new JMenuItem("Linear");
+    linearRegression.setActionCommand("Linear Regression");
+    regression.add(linearRegression);
+
+
+
     this.pack();
   }
 
@@ -156,6 +169,7 @@ public class DataView extends JFrame {
     onlyCountry.addActionListener(listener);
     allCountry.addActionListener(listener);
     addCountries.addActionListener(listener);
+    linearRegression.addActionListener(listener);
   }
 
   public void setImage(BufferedImage bufferedImage) {

@@ -12,4 +12,6 @@ public interface DataStorage {
   String getMeasurement();
 
   Map<Integer,Float> getMap();
+
+  void addPoint(int parsedFut, float prediction);
 }
