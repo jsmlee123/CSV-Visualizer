@@ -67,7 +67,7 @@ public class DataView extends JFrame {
     //image panel
     //panel for showing the image
     JPanel imagePanel = new JPanel();
-    imagePanel.setBorder(BorderFactory.createTitledBorder("Top Layer Image"));
+    imagePanel.setBorder(BorderFactory.createTitledBorder("Graph"));
     imagePanel.setPreferredSize(new Dimension(1000, 1000));
     imagePanel.setLayout(new GridLayout(1, 0, 10, 10));
     mainPanel.add(imagePanel);
