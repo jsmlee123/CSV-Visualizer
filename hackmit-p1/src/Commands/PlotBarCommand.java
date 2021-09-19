@@ -16,6 +16,8 @@ public class PlotBarCommand extends AbstractCommand{
 
   @Override
   public void run() {
+    String measurement = this.model.get(0).getMeasurement();
+
     DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
     for (Country co : this.model) {
       for (Float[] pair : co.plottable()) {
@@ -23,7 +25,7 @@ public class PlotBarCommand extends AbstractCommand{
       }
       JFreeChart barChart = ChartFactory.createBarChart(
           "CO2 Emissions Yearly",
-          "Years", co.getMeasurement(),
+          "Years", measurement,
           line_chart_dataset, PlotOrientation.VERTICAL,
           true, true, false);
 

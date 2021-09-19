@@ -1,12 +1,16 @@
 package Model;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
 
 public class Util {
   /**
@@ -133,4 +137,11 @@ public class Util {
 
     return str;
   }
+
+  public static void writeImage(BufferedImage model, String file)
+      throws IllegalArgumentException, IOException{
+        File outputfile = new File(file);
+        ImageIO.write(model, "png", outputfile);
+  }
+
 }

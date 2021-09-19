@@ -25,6 +25,8 @@ public class DataView extends JFrame {
 
   private final JMenuItem fileOpenButton;
 
+  private final JMenuItem fileSaveButton;
+
   private final JMenuItem plotLinear;
 
   private final JMenuItem removeCountry;
@@ -89,6 +91,11 @@ public class DataView extends JFrame {
     fileOpenButton.setActionCommand("Open");
     file.add(fileOpenButton);
 
+    //SAve file
+    fileSaveButton = new JMenuItem("Save");
+    fileSaveButton.setActionCommand("Save");
+    file.add(fileSaveButton);
+
     //menu for plot operations
     JMenu plot = new JMenu("Plot");
     menuBar.add(plot);
@@ -140,6 +147,7 @@ public class DataView extends JFrame {
 
   public void setListener(ActionListener listener) {
     fileOpenButton.addActionListener(listener);
+    fileSaveButton.addActionListener(listener);
     plotLinear.addActionListener(listener);
     plotBar.addActionListener(listener);
     plotBar3D.addActionListener(listener);
@@ -154,6 +162,16 @@ public class DataView extends JFrame {
     if (bufferedImage != null) {
       imageLabel.setIcon(new ImageIcon(bufferedImage));
     }
+  }
+
+  public String saveImage() {
+    final JFileChooser fchooser = new JFileChooser(".");
+    int retvalue = fchooser.showSaveDialog(DataView.this);
+    if (retvalue == JFileChooser.APPROVE_OPTION) {
+      File f = fchooser.getSelectedFile();
+      return f.getAbsolutePath();
+    }
+    return "";
   }
 
 
@@ -171,5 +189,15 @@ public class DataView extends JFrame {
 
   public String getText(String message) {
     return JOptionPane.showInputDialog(message);
+  }
+
+  public String chooseType(String[] strings) {
+
+    int returnVal = JOptionPane.showOptionDialog(null,
+        "Choose a type of Graph to save:",
+        "Image Type",
+        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, strings, strings[0]);
+
+    return strings[returnVal];
   }
 }

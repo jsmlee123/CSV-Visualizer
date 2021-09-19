@@ -8,6 +8,7 @@ import Commands.PlotBar3DCommand;
 import Commands.PlotBarCommand;
 import Commands.PlotLineCommand;
 import Commands.ReadCSV;
+import Commands.SaveCommand;
 import Commands.addCountry;
 import Commands.removeCountry;
 import Model.Country;
@@ -29,7 +30,7 @@ public class DataController implements ActionListener {
 
   private final DataView view;
 
-  private BufferedImage currentGraph;
+
 
   private final Map<String, Supplier<DataCommand>> commandMap;
 
@@ -47,6 +48,10 @@ public class DataController implements ActionListener {
     commandMap.putIfAbsent("Plot Bar 3D", () -> new PlotBar3DCommand(model, view));
 
     commandMap.putIfAbsent("Open", () -> new ReadCSV(model,view, view.getCSVPath()));
+
+    commandMap.putIfAbsent("Save", () -> new SaveCommand(model,view,
+        view.chooseType(new String[]{"Linear","Bar Plot", "Bar Plot 3D"}) ,view.saveImage()));
+
 
     commandMap.putIfAbsent("Remove", () -> new removeCountry(model,hidden,view,
         view.getText("Input Countries to remove, separated by comma")));
@@ -79,6 +84,8 @@ public class DataController implements ActionListener {
       c = command.get();
       c.run();
     }
+
+
   }
 
 

@@ -17,20 +17,21 @@ public class PlotLineCommand extends AbstractCommand{
 
   @Override
   public void run() {
+    String measurement = this.model.get(0).getMeasurement();
+
     DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
     for (Country co: this.model) {
       for (Float[] pair:co.plottable()) {
         line_chart_dataset.addValue( pair[1] , co.getName() , pair[0] );
       }
-      JFreeChart lineChartObject = ChartFactory.createLineChart(
-          "CO2 Emissions Yearly","Years",
-          co.getMeasurement(),
-          line_chart_dataset, PlotOrientation.VERTICAL,
-          true,true,false);
-
-      this.view.setImage(lineChartObject.createBufferedImage(1380,900));
-
-
     }
+
+    JFreeChart lineChartObject = ChartFactory.createLineChart(
+        "CO2 Emissions Yearly","Years",
+        measurement,
+        line_chart_dataset, PlotOrientation.VERTICAL,
+        true,true,false);
+
+    this.view.setImage(lineChartObject.createBufferedImage(1380,900));
   }
 }
