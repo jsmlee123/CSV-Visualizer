@@ -23,7 +23,7 @@ public class PlotBar3DCommand extends AbstractCommand{
         line_chart_dataset.addValue(pair[1], co.getName(), pair[0]);
       }
       JFreeChart barChart = ChartFactory.createBarChart3D(
-          "CO2 Emissions Yearly",
+          "CO2 Emissions From Itl. Trade Yearly",
           "Years", measurement,
           line_chart_dataset,
           PlotOrientation.VERTICAL,

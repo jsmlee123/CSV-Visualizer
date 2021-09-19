@@ -27,7 +27,7 @@ public class PlotLineCommand extends AbstractCommand{
     }
 
     JFreeChart lineChartObject = ChartFactory.createLineChart(
-        "CO2 Emissions Yearly","Years",
+        "CO2 Emissions From Itl. Trade Yearly","Years",
         measurement,
         line_chart_dataset, PlotOrientation.VERTICAL,
         true,true,false);

@@ -24,7 +24,7 @@ public class PlotBarCommand extends AbstractCommand{
         line_chart_dataset.addValue(pair[1], co.getName(), pair[0]);
       }
       JFreeChart barChart = ChartFactory.createBarChart(
-          "CO2 Emissions Yearly",
+          "CO2 Emissions From Itl. Trade Yearly",
           "Years", measurement,
           line_chart_dataset, PlotOrientation.VERTICAL,
           true, true, false);
